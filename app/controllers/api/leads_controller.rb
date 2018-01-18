@@ -12,7 +12,8 @@ class Api::LeadsController < ApplicationController
     @api_lead = Lead.new(api_lead_params)
 
     if @api_lead.save
-      render json: { id: @api_lead.id, title: @api_lead.title, first_name: @api_lead.first_name, last_name: @api_lead.last_name }
+      render json: { id: @api_lead.id, title: @api_lead.title, firstName: @api_lead.firstName, lastName: @api_lead.lastName }
+      return ['redirect' => route('/success')];
     else
       render json: { errors: @api_lead.errors.full_messages }, status: 422
     end
@@ -32,8 +33,8 @@ class Api::LeadsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def api_movie_params
-      params.require(:movie).permit(:title, :first_name, :last_name, :email, :phone, :phone_type, :state, :city, :insurance_company)
+    def api_lead_params
+      params.require(:lead).permit(:title, :firstName, :lastName, :email, :phone, :phoneType, :state, :city, :insuranceCompany)
     end
 
 end
