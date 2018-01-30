@@ -1,5 +1,11 @@
 import React from 'react';
 
+// export const titleOptions = [
+//   {name: 'Mr.', text: 'Mr.', value: 'mr'},
+//   {name: 'Mrs.', text: 'Mrs.', value: 'mrs'},
+//   {name: 'Miss', text: 'Miss', value: 'miss'},
+//   {name: 'Ms.', text: 'Ms.', value: 'ms'},
+// ];
 export const titleOptions = [
   {text: 'Mr.', value: 'mr'},
   {text: 'Mrs.', value: 'mrs'},

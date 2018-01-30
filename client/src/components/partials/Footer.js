@@ -19,14 +19,14 @@ class Footer extends React.Component {
                 <List.Item style={styles.lightGrayText} >
                   <List.Icon name='map pin' />
                   <List.Content>
-                    Pier 1, Bay 1<br />
-                    San Francisco, CA 94111<br />
+                    251 Bagley Street<br />
+                    Mare Island, CA 94592<br />
                   </List.Content>
                 </List.Item>
                 <List.Item
                   icon='phone'
                   style={styles.lightGrayText}
-                  content='415-887-2211'
+                  content='707-935-2500'
                 />
                 <List.Item style={styles.lightGrayText}>
                   <List.Icon name='mail outline' />

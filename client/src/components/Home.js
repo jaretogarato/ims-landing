@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Header, Grid, Container, Segment, Image, List, Item, Divider, Card } from 'semantic-ui-react';
 import ImgHeader from '../images/home.jpg';
 import LogoMed from '../images/ims-logo-med.png';
-import Fire from '../images/home-with-fire-05.jpg';
+import Fire from '../images/home-with-fire-06.jpg';
+import FloorPlan from '../images/floor-plan-rendering.jpg';
+import Kitchen from '../images/kitchen-rendering.jpg';
 import {
   HeroHeader,
   HeroHeaderTextContainerLeft,
@@ -55,12 +57,12 @@ class Home extends Component {
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-              <Grid.Column width={6}>
+              {/* <Grid.Column width={6}>
                 <Divider hidden>
                   <Image src={LogoMed} style={styles.logo}/>
                 </Divider>
-              </Grid.Column>
-              <Grid.Column width={10}>
+              </Grid.Column> */}
+              <Grid.Column width={16}>
                 <Divider />
                 <Header as='h3'>
                   Introducing Intermodal Structures
@@ -71,8 +73,23 @@ class Home extends Component {
             </Grid.Row>
             <Grid.Row>
               <Grid.Column width={16}>
-                <Header as='h2'>
-                  TRUE homes are top-quality, modern Transitional Residential Units ... Everywhere
+                <Header as='h2' align='center'>
+                  imsTRU Homes are top-quality, modern Transitional Residential Units
+                </Header>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column width={16}>
+                <Image.Group size='large'>
+                  <Image src={Kitchen} centered />
+                  <Image src={FloorPlan} centered />
+                </Image.Group>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column width={16}>
+                <Header as='h4' align='center'>
+                  Representative of the quality of the TRU interior
                 </Header>
               </Grid.Column>
             </Grid.Row>
@@ -107,12 +124,12 @@ class Home extends Component {
                   </Card>
                   <Card>
                     <Card.Header as='h2' style={styles.h2CardHeaderOrange}>
-                      Benefits<br />of TRUE homes
+                      Benefits<br />of imsTRU Homes
                     </Card.Header>
                     <Card.Content>
                       <List bulleted style={styles.listLeft}>
                         <List.Item>
-                          TRUE homes are located on your land.
+                          imsTRU Homes are located on your land.
                         </List.Item>
                         <List.Item>
                           Installation within 4 to 5 months. On-site time can be as short as a few days!
@@ -150,9 +167,9 @@ class Home extends Component {
                 </Card.Group>
                 <Segment basic></Segment>
                 <Segment basic align='left'>
-                  <p>Intermodal structures are currently working with major insurance companies to be able to provide you with the option to live on your own property while your home is being rebuilt, at no cost to you. Relaxation of set-back requirements since the California fires enables creative placement of TRUE homes, and we expect this approval to come through shortly.</p>
+                  <p>Intermodal structures are currently working with major insurance companies to be able to provide you with the option to live on your own property while your home is being rebuilt, at no cost to you. Relaxation of set-back requirements since the California fires enables creative placement of imsTRU Homes, and we expect this approval to come through shortly.</p>
                   {/* Net Zero - self-generates all the electricity the home requires.<br /> */}
-                  <p>If you are interested in hearing more about this option, just fill out the form below and we will let you know as soon TRUE homes are approved for your area, and we can help you with starting the process of getting your TRUE home placed on your property as quickly as possible.</p>
+                  <p>If you are interested in hearing more about this option, just fill out the form below and we will let you know as soon imsTRU Homes are approved for your area, and we can help you with starting the process of getting your imsTRU Home placed on your property as quickly as possible.</p>
                   <p><br /></p>
                 </Segment>
               </Grid.Column>

@@ -7,14 +7,16 @@ import { flash } from '../../actions/flash';
 import { setFlash } from '../../actions/flash';
 import { styles } from '../../css/inlineStyles.js';
 import { titleOptions, phoneTypeOptions, stateOptions } from './FormOptions.js';
+import { withRouter } from 'react-router-dom';
 
 class SubmitForm extends Component {
-  state = { title: '', firstName: '', lastName: '', primaryPhone: '', phoneType: '', email: '', state: '', city: '', insuranceCompany: '' }
+  state = { title: '', firstName: '', lastName: '', phone: '', phoneType: '', email: '', state: '', city: '', insuranceCompany: '' }
 
   handleSubmit = event => {
     event.preventDefault();
-    const { title, firstName, lastName, primaryPhone, phoneType, email, state, city, insuranceCompany } = this.state;
+    const { title, firstName, lastName, phone, phoneType, email, state, city, insuranceCompany } = this.state;
     const { dispatch, history } = this.props;
+    debugger;
 
     // TODO: better error checking
     if (firstName === '') {
@@ -22,9 +24,12 @@ class SubmitForm extends Component {
     } else {
       axios.post('/api/leads', this.state)
       .then(function (res) {
-        window.location = res.data.redirect;
-        history.push(`./leads/${res.data.id}`);
+        // window.location = res.data.redirect;
+        // history.push(`./${res.data.id}`);
+        // history.push(`./leads/${res.data.id}`);
         // window.location = '/success';
+        // this.props.history.push('/success');
+        history.push('/success');
       })
       .catch( err => {
         console.log('Failed to add contact');
@@ -38,10 +43,21 @@ class SubmitForm extends Component {
     const id = event.target.id;
     const value = event.target.value;
     this.setState({ [id]: value });
+    console.log(this.state);
+  }
+  handleOptionChange = event => {
+    const id = event.target.id;
+    const value = event.target.value;
+    const options = event.target.options;
+    this.setState({ [id]: value });
+    console.log(event.target);
+    console.log(event.target.value);
+    console.log(event.target.options);
+    console.log(this.state);
   }
 
   render() {
-    const { title, firstName, lastName, primaryPhone, phoneType, email, state, city, insuranceCompany } = this.state;
+    const { title, firstName, lastName, phone, phoneType, email, state, city, insuranceCompany } = this.state;
 
     return (
       <Container fluid style={styles.lightGrayBg}>
@@ -57,8 +73,13 @@ class SubmitForm extends Component {
                     placeholder='Title'
                     fluid
                     selection
+                    required
+                    search
                     options={titleOptions}
-                  />
+                    onChange={this.handleOptionChange}
+                  >
+
+                  </Dropdown>
                 </Grid.Column>
                 <Grid.Column width={7}>
                   <Form.Field>
@@ -98,10 +119,10 @@ class SubmitForm extends Component {
                 <Grid.Column width={5}>
                   <Form.Field>
                     <input
-                      id='primaryPhone'
+                      id='phone'
                       placeholder='Phone'
                       required
-                      value={primaryPhone}
+                      value={phone}
                       onChange={this.handleChange}
                     />
                   </Form.Field>
@@ -112,7 +133,9 @@ class SubmitForm extends Component {
                     placeholder='Phone Type'
                     fluid
                     selection
+                    required
                     options={phoneTypeOptions}
+                    onChange={this.handleChange}
                   />
                 </Grid.Column>
               </Grid.Row>
@@ -123,7 +146,9 @@ class SubmitForm extends Component {
                     placeholder='State'
                     fluid
                     selection
+                    required
                     options={stateOptions}
+                    onChange={this.handleChange}
                   />
                 </Grid.Column>
                 <Grid.Column width={7}>
@@ -162,4 +187,5 @@ class SubmitForm extends Component {
 }
 
 // export default connect()(SubmitForm);
-export default SubmitForm;
+// export default SubmitForm;
+export default withRouter(SubmitForm);
